@@ -41,7 +41,7 @@ if (! $response) {
     exit;
 }
 
-$explodedResponse = explode(PHP_EOL . '', $response);
+$explodedResponse = explode(PHP_EOL, $response);
 
 foreach ($explodedResponse as $explodedResponseLineIndex => $explodedResponseLine) {
     if ($explodedResponseLine === '') {
