@@ -66,3 +66,4 @@ if ($jsonResponse === null) {
 
 http_response_code(200);
 echo $responseText;
+ 
