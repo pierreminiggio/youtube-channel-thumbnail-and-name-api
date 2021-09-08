@@ -50,7 +50,6 @@ foreach ($explodedResponse as $explodedResponseLineIndex => $explodedResponseLin
 }
 
 $responseLines = array_splice($explodedResponse, $explodedResponseLineIndex);
-
 $responseText = implode($responseLines);
 
 if (! $responseText) {
