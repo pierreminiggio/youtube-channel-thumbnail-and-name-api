@@ -1,5 +1,26 @@
 <?php
 
+$origin = $_SERVER['HTTP_ORIGIN'] ?? null;
+
+if ($origin) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+}
+
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Max-Age: 86400');
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+
+$accessControlRequestHeaders = $_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'] ?? null;
+
+if ($accessControlRequestHeaders) {
+    header('Access-Control-Allow-Headers: ' . $accessControlRequestHeaders);
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
+
 $channelUrl = $_GET['channel_url'] ?? null;
 
 if (! $channelUrl) {
